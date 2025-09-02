@@ -1,11 +1,4 @@
-import {
-  Image,
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from "react-native";
+import { Image, Text, View, StyleSheet, ScrollView } from "react-native";
 import { MEALS } from "../data/dummy-data";
 import MealDetails from "../components/MealDetails";
 import SubtitleMealDetails from "../components/SubtitleMealDetails";
@@ -16,9 +9,9 @@ import { FavouritesContext } from "../store/contex/favourites-context";
 
 function DetailsMealScreen({ route, navigation }) {
   const favouriteMealContext = useContext(FavouritesContext);
-  const isMealFavourite = favouriteMealContext.ids.includes(mealID);
   const mealID = route.params.mealID;
   const selectedMeal = MEALS.find((meal) => meal.id === mealID);
+  const isMealFavourite = favouriteMealContext.ids.includes(mealID);
 
   function changeFavouriteHandler() {
     if (isMealFavourite) {
